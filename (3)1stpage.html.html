@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Health - Sign Up / Log In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .form-group {
+            margin-bottom: 1em;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 0.7em;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        .toggle-link {
+            display: block;
+            margin-top: 1em;
+            color: #4CAF50;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            margin-top: 0.5em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Eternal Health</h1>
+        
+        <div id="sign-up-form">
+            <h2>Sign Up</h2>
+            <div class="form-group">
+                <label for="sign-up-username">Username</label>
+                <input type="text" id="sign-up-username" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="sign-up-email">Email</label>
+                <input type="email" id="sign-up-email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="sign-up-password">Password</label>
+                <input type="password" id="sign-up-password" placeholder="Enter password">
+            </div>
+            <div class="form-group">
+                <button onclick="signUp()">Sign Up</button>
+            </div>
+            <span class="toggle-link" onclick="toggleForm('log-in')">Already have an account? Log In</span>
+            <p id="sign-up-error" class="error">Please fill in all fields correctly.</p>
+        </div>
+        
+        <div id="log-in-form" style="display: none;">
+            <h2>Log In</h2>
+            <div class="form-group">
+                <label for="log-in-email">Email</label>
+                <input type="email" id="log-in-email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="log-in-password">Password</label>
+                <input type="password" id="log-in-password" placeholder="Enter password">
+            </div>
+            <div class="form-group">
+                <button onclick="logIn()">Log In</button>
+            </div>
+            <span class="toggle-link" onclick="toggleForm('sign-up')">Don't have an account? Sign Up</span>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm(form) {
+            if (form === 'sign-up') {
+                document.getElementById('sign-up-form').style.display = 'block';
+                document.getElementById('log-in-form').style.display = 'none';
+                document.getElementById('sign-up-error').style.display = 'none';
+            } else {
+                document.getElementById('sign-up-form').style.display = 'none';
+                document.getElementById('log-in-form').style.display = 'block';
+                document.getElementById('sign-up-error').style.display = 'none';
+            }
+        }
+
+        function signUp() {
+            // Get form values
+            var username = document.getElementById('sign-up-username').value.trim();
+            var email = document.getElementById('sign-up-email').value.trim();
+            var password = document.getElementById('sign-up-password').value.trim();
+            
+            // Email validation
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Check if any field is empty or if the email format is invalid
+            if (username === '' || email === '' || password === '' || !emailPattern.test(email)) {
+                document.getElementById('sign-up-error').style.display = 'block';
+                document.getElementById('sign-up-error').innerText = 'Please fill in all fields correctly.';
+            } else {
+                document.getElementById('sign-up-error').style.display = 'none';
+                // Redirect to second.html
+                window.location.href = 'second.html';
+            }
+        }
+
+        function logIn() {
+            // Handle log-in logic
+            // Redirect to second.html (if applicable)
+            window.location.href = 'second.html';
+        }
+    </script>
+
+</body>
+</html>

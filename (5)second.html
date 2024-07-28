@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Health Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2em auto;
+            background-color: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        .form-group {
+            margin-bottom: 1em;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group input[type="radio"],
+        .form-group input[type="checkbox"] {
+            width: auto;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 0.7em;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Eternal Health App Questionnaire</h1>
+        <form id="questionnaire-form">
+            <h2>Personal Information</h2>
+            <div class="form-group">
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" name="full-name" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select...</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number (Optional):</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+
+            <h2>Lifestyle and Preferences</h2>
+            <div class="form-group">
+                <label for="fitness-goal">What is your primary fitness goal?</label>
+                <select id="fitness-goal" name="fitness-goal" required>
+                    <option value="">Select...</option>
+                    <option value="weight-loss">Weight loss</option>
+                    <option value="muscle-gain">Muscle gain</option>
+                    <option value="endurance">Improved endurance</option>
+                    <option value="flexibility">Increased flexibility</option>
+                    <option value="general-health">General health and wellness</option>
+                    <option value="mental-health">Improve mental health</option>
+                    <option value="other">Other (please specify)</option>
+                </select>
+            </div>
+
+            <div id="mental-health-section" class="hidden">
+                <h2>Mental Health Information</h2>
+                <div class="form-group">
+                    <label for="mental-health-goal"><b>What is your primary mental health goal?</b></label>
+                    <select id="mental-health-goal" name="mental-health-goal" required>
+                        <option value="">Select...</option>
+                        <option value="stress-reduction">Stress reduction</option>
+                        <option value="anxiety-management">Anxiety management</option>
+                        <option value="improved-sleep">Improved sleep</option>
+                        <option value="enhanced-focus">Enhanced focus</option>
+                        <option value="emotional-balance">Better emotional balance</option>
+                        <option value="other">Other (please specify)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><b>What type of mental health activities are you interested in?</b></label>
+                    <div>
+                        <input type="checkbox" id="mental-meditation" name="mental-activities" value="meditation">
+                        <label for="mental-meditation">Meditation</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="mental-mindfulness" name="mental-activities" value="mindfulness">
+                        <label for="mental-mindfulness">Mindfulness exercises</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="mental-journaling" name="mental-activities" value="journaling">
+                        <label for="mental-journaling">Journaling</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="mental-relaxation" name="mental-activities" value="relaxation">
+                        <label for="mental-relaxation">Relaxation techniques</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="mental-cbt" name="mental-activities" value="cbt">
+                        <label for="mental-cbt">Cognitive Behavioral Therapy (CBT) exercises</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="mental-other" name="mental-activities" value="other">
+                        <label for="mental-other">Other (please specify)</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><b>Do you prefer guided sessions or self-directed activities?</b></label>
+                    <div>
+                        <input type="radio" id="guided" name="session-preference" value="guided" required>
+                        <label for="guided">Guided sessions</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="self-directed" name="session-preference" value="self-directed" required>
+                        <label for="self-directed">Self-directed activities</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="mix" name="session-preference" value="mix" required>
+                        <label for="mix">A mix of both</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="current-status-section" class="hidden">
+                <h2>Current Health and Fitness Status</h2>
+                <div class="form-group">
+                    <label for="fitness-level"><b>How would you describe your current fitness level?</b></label>
+                    <select id="fitness-level" name="fitness-level" required>
+                        <option value="">Select...</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><b>How many days per week are you able to dedicate to fitness activities?</b></label>
+                    <div>
+                    <input type="radio" id="days-1-2" name="fitness-days" value="1-2" required>
+                    <label for="days-1-2">1-2 days</label>
+                </div>
+                <div>
+                    <input type="radio" id="days-3-4" name="fitness-days" value="3-4" required>
+                    <label for="days-3-4">3-4 days</label>
+                </div>
+                <div>
+                    <input type="radio" id="days-5-6" name="fitness-days" value="5-6" required>
+                    <label for="days-5-6">5-6 days</label>
+               
+                <div class="form-group">
+                           <label><b>How much time can you commit to each fitness session?</b></label>
+                <div>
+                    <input type="radio" id="time-15-30" name="fitness-time" value="15-30" required>
+                    <label for="time-15-30">15-30 minutes</label>
+                </div>
+                <div>
+                    <input type="radio" id="time-30-45" name="fitness-time" value="30-45" required>
+                    <label for="time-30-45">30-45 minutes</label>
+                </div>
+                <div>
+                    <input type="radio" id="time-45-60" name="fitness-time" value="45-60" required>
+                    <label for="time-45-60">45-60 minutes</label>
+                </div>
+                <div>
+                    <input type="radio" id="time-over-60" name="fitness-time" value="over-60" required>
+                    <label for="time-over-60">Over 60 minutes</label>
+                </div>
+            </div>
+          
+
+            <div id="app-experience-section" class="hidden">
+                <h2>App Experience and Features</h2>
+                <div class="form-group">
+                    <label for="app-usage-frequency"><b>How often do you use fitness apps?</b></label>
+                    <select id="app-usage-frequency" name="app-usage-frequency" required>
+                        <option value="">Select...</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="rarely">Rarely</option>
+                        <option value="never">Never</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="features"><b>What features would you like to see in the Eternal Health app?</b></label>
+                    <div>
+                        <input type="checkbox" id="feature-workout-plans" name="app-features" value="workout-plans">
+                        <label for="feature-workout-plans">Personalized workout plans</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="feature-mental-resources" name="app-features" value="mental-resources">
+                        <label for="feature-mental-resources">Mental health resources</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="feature-progress-tracking" name="app-features" value="progress-tracking">
+                        <label for="feature-progress-tracking">Progress tracking</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="feature-integration" name="app-features" value="integration">
+                        <label for="feature-integration">Integration with other health apps</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="feature-community" name="app-features" value="community">
+                        <label for="feature-community">Community support</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="feature-expert-advice" name="app-features" value="expert-advice">
+                        <label for="feature-expert-advice">Expert advice and tips</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="feature-other" name="app-features" value="other">
+                        <label for="feature-other">Other (please specify)</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="feature-details">If other, please specify:</label>
+                    <textarea id="feature-details" name="feature-details"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="notifications"><b>How do you prefer to receive notifications from the app?</b></label>
+                    <select id="notifications" name="notifications" required>
+                        <option value="">Select...</option>
+                        <option value="push">Push notifications</option>
+                        <option value="email">Email</option>
+                        <option value="sms">SMS</option>
+                        <option value="none">No notifications</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="motivation"><b>What motivates you to stick to a fitness and mental health routine?</b></label>
+                    <div>
+                        <input type="checkbox" id="motivation-goals" name="motivation" value="goals">
+                        <label for="motivation-goals">Achieving specific goals</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="motivation-progress" name="motivation" value="progress">
+                        <label for="motivation-progress">Seeing progress</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="motivation-plan" name="motivation" value="plan">
+                        <label for="motivation-plan">Having a structured plan</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="motivation-partners" name="motivation" value="partners">
+                        <label for="motivation-partners">Accountability partners</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="motivation-rewards" name="motivation" value="rewards">
+                        <label for="motivation-rewards">Rewards and incentives</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="motivation-other" name="motivation" value="other">
+                        <label for="motivation-other">Other (please specify)</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="motivation-details">If other, please specify:</label>
+                    <textarea id="motivation-details" name="motivation-details"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="challenges"><b>What challenges do you face in maintaining a consistent fitness and mental health routine?</b></label>
+                    <div>
+                        <input type="checkbox" id="challenge-time" name="challenges" value="time">
+                        <label for="challenge-time">Lack of time</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="challenge-motivation" name="challenges" value="motivation">
+                        <label for="challenge-motivation">Lack of motivation</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="challenge-activities" name="challenges" value="activities">
+                        <label for="challenge-activities">Difficulty finding suitable activities</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="challenge-financial" name="challenges" value="financial">
+                        <label for="challenge-financial">Financial constraints</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="challenge-support" name="challenges" value="support">
+                        <label for="challenge-support">Lack of support</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="challenge-other" name="challenges" value="other">
+                        <label for="challenge-other">Other (please specify)</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="challenge-details">If other, please specify:</label>
+                    <textarea id="challenge-details" name="challenge-details"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="referral"><b>How did you hear about the Eternal Health app?</b></label>
+                    <select id="referral" name="referral" required>
+                        <option value="">Select...</option>
+                        <option value="social-media">Social media</option>
+                        <option value="referral">Friend or family referral</option>
+                        <option value="advertisement">Online advertisement</option>
+                        <option value="search-engine">Search engine</option>
+                        <option value="other">Other (please specify)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="referral-details">If other, please specify:</label>
+                    <textarea id="referral-details" name="referral-details"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit"><a href="third.html">Submit</a></button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('fitness-goal').addEventListener('change', function () {
+            var fitnessGoal = this.value;
+            var mentalHealthSection = document.getElementById('mental-health-section');
+            var currentStatusSection = document.getElementById('current-status-section');
+            var appExperienceSection = document.getElementById('app-experience-section');
+
+            if (fitnessGoal === 'mental-health') {
+                mentalHealthSection.classList.remove('hidden');
+                currentStatusSection.classList.remove('hidden');
+                appExperienceSection.classList.remove('hidden');
+            } else {
+                mentalHealthSection.classList.add('hidden');
+                currentStatusSection.classList.remove('hidden');
+                appExperienceSection.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

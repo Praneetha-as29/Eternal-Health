@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Health - Select Feature</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 1em;
+        }
+        .form-group {
+            margin-bottom: 1em;
+        }
+        .feature-button {
+            width: 100%;
+            padding: 1em;
+            margin: 0.5em 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .feature-button:hover {
+            background-color: #ddd;
+        }
+        .selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .error {
+            color: red;
+            margin-top: 0.5em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Select a Feature</h1>
+        <div class="form-group">
+            <button class="feature-button" onclick="selectFeature(this, 'Mental Health Therapy')">Mental Health Therapy</button>
+            <button class="feature-button" onclick="selectFeature(this, 'Reminder')">Reminder</button>
+            <button class="feature-button" onclick="selectFeature(this, 'Yoga')">Yoga</button>
+            <button class="feature-button" onclick="selectFeature(this, 'Period Tracker')">Period Tracker</button>
+            <button class="feature-button" onclick="selectFeature(this, 'Diets Based on Questionnaire')">Diets Based on Questionnaire</button>
+            <button class="feature-button" onclick="selectFeature(this, 'Track Medical History')">Track Medical History</button>
+            <button class="feature-button" onclick="selectFeature(this, 'Detailed Monitoring and Tracking')">Detailed Monitoring and Tracking</button>
+            <button class="feature-button" onclick="selectFeature(this, 'Streaks and Achievements')">Streaks and Achievements</button>
+        </div>
+        <div class="form-group">
+            <button onclick="continueSelection()" style="background-color: #4CAF50; color: white;">Continue</button>
+        </div>
+        <p id="feature-error" class="error">Please select a feature.</p>
+    </div>
+
+    <script>
+        let selectedFeature = null;
+
+        function selectFeature(element, feature) {
+            // Clear previous selection
+            const buttons = document.querySelectorAll('.feature-button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+
+            // Highlight the selected button
+            element.classList.add('selected');
+            selectedFeature = feature;
+        }
+
+        function continueSelection() {
+            if (selectedFeature) {
+                document.getElementById('feature-error').style.display = 'none';
+                // Proceed to the next page based on the selected feature
+                switch (selectedFeature) {
+                    case 'Mental Health Therapy':
+                        window.location.href = 'mental.html';
+                        break;
+                    case 'Reminder':
+                        window.location.href = 'reminder.html';
+                        break;
+                    case 'Yoga':
+                        window.location.href = 'yoga.html';
+                        break;
+                    case 'Period Tracker':
+                        window.location.href = 'periodtracker.html';
+                        break;
+                    case 'Diets Based on Questionnaire':
+                        window.location.href = 'diet.html';
+                        break;
+                    case 'Track Medical History':
+                        window.location.href = 'track.html';
+                        break;
+                    case 'Detailed Monitoring and Tracking':
+                        window.location.href = 'detailed.html';
+                        break;
+                    case 'Streaks and Achievements':
+                        window.location.href = 'streak.html';
+                        break;
+                    default:
+                        document.getElementById('feature-error').style.display = 'block';
+                        break;
+                }
+            } else {
+                document.getElementById('feature-error').style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>

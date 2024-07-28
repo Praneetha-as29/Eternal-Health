@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequent Reminders - Medication, Food, and Water</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Inline styles for simplicity; move to styles.css for better practice */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .reminder-section {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .reminder-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #555;
+        }
+
+        .summary {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Frequent Reminders</h1>
+    </header>
+
+    <div class="container">
+        <a href="third.html" class="back-button">Back</a>
+
+        <!-- Medication Reminder Section -->
+        <section class="reminder-section">
+            <h2>Set Medication Reminders</h2>
+            <form action="submit_medication_reminder" method="POST"> <!-- Change the action URL accordingly -->
+                <div class="form-group">
+                    <label for="medication-name">Medication Name:</label>
+                    <input type="text" id="medication-name" name="medication-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dosage">Dosage:</label>
+                    <input type="text" id="dosage" name="dosage" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="frequency">Frequency (times per day):</label>
+                    <input type="number" id="frequency" name="frequency" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Set Reminder">
+                </div>
+            </form>
+        </section>
+
+        <!-- Food Reminder Section -->
+        <section class="reminder-section">
+            <h2>Set Food Intake Reminders</h2>
+            <form action="submit_food_reminder" method="POST"> <!-- Change the action URL accordingly -->
+                <div class="form-group">
+                    <label for="meal-time">Meal Time:</label>
+                    <select id="meal-time" name="meal-time" required>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="snack">Snack</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="food-items">Food Items:</label>
+                    <input type="text" id="food-items" name="food-items" placeholder="E.g., Salad, Chicken, Rice" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Set Reminder">
+                </div>
+            </form>
+        </section>
+
+        <!-- Water Intake Reminder Section -->
+        <section class="reminder-section">
+            <h2>Set Water Intake Reminders</h2>
+            <form action="submit_water_reminder" method="POST"> <!-- Change the action URL accordingly -->
+                <div class="form-group">
+                    <label for="water-intake">Water Intake (liters per day):</label>
+                    <input type="number" id="water-intake" name="water-intake" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Set Reminder">
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Health Reminder App. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

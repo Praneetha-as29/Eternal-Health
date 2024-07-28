@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Tracker</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Inline styles for simplicity; move to styles.css for better practice */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .tracker-section {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .tracker-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .summary {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Period Tracker</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="third.html" class="back-button">Back</a>
+        <section class="tracker-section">
+            <h2>Track Your Period</h2>
+            <form action="submit_period_data" method="POST"> <!-- Change the action URL accordingly -->
+                <div class="form-group">
+                    <label for="start-date">Period Start Date:</label>
+                    <input type="date" id="start-date" name="start-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cycle-length">Average Cycle Length (days):</label>
+                    <input type="number" id="cycle-length" name="cycle-length" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="symptoms">Symptoms (optional):</label>
+                    <input type="text" id="symptoms" name="symptoms" placeholder="E.g., cramps, headache">
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Additional Notes:</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="Any additional details"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save Entry">
+                </div>
+            </form>
+
+            <div class="summary">
+                <h3>Upcoming Period</h3>
+                <p>Your next period is expected to start on: <span id="next-period-date">[Date]</span></p>
+                <!-- JavaScript can be used to calculate and display the next period date -->
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Mental Health and Wellness App. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // JavaScript for calculating the next period date (client-side example)
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector('form');
+            const nextPeriodDateElement = document.getElementById('next-period-date');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the form from submitting normally
+
+                const startDate = new Date(document.getElementById('start-date').value);
+                const cycleLength = parseInt(document.getElementById('cycle-length').value);
+
+                if (!isNaN(startDate.getTime()) && !isNaN(cycleLength)) {
+                    const nextPeriodDate = new Date(startDate);
+                    nextPeriodDate.setDate(startDate.getDate() + cycleLength);
+
+                    nextPeriodDateElement.textContent = nextPeriodDate.toLocaleDateString();
+                } else {
+                    nextPeriodDateElement.textContent = 'Please enter valid data.';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

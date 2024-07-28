@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Medical History</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Inline styles for simplicity; move to styles.css for better practice */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .medical-history-section {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .medical-history-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .summary {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .medical-records {
+            margin-top: 20px;
+        }
+
+        .medical-records h3 {
+            margin-bottom: 10px;
+        }
+
+        .medical-record {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Track Medical History</h1>
+    </header>
+
+    <div class="container">
+        <a href="third.html" class="back-button">Back</a>
+        <!-- Medical History Form Section -->
+        <section class="medical-history-section">
+            <h2>Add Medical History Record</h2>
+            <form action="submit_medical_history" method="POST"> <!-- Change the action URL accordingly -->
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="condition">Condition/Diagnosis:</label>
+                    <input type="text" id="condition" name="condition" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="medications">Medications (if any):</label>
+                    <textarea id="medications" name="medications" rows="2"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="doctor">Doctor/Healthcare Provider:</label>
+                    <input type="text" id="doctor" name="doctor">
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Additional Notes:</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Add Record">
+                </div>
+            </form>
+        </section>
+
+        <!-- Display Medical History Records Section -->
+        <section class="medical-history-section medical-records">
+            <h2>Medical History Records</h2>
+            <div class="medical-record">
+                <h3>Date: 2024-07-27</h3>
+                <p><strong>Condition/Diagnosis:</strong> Hypertension</p>
+                <p><strong>Description:</strong> High blood pressure diagnosed during routine check-up.</p>
+                <p><strong>Medications:</strong> Lisinopril</p>
+                <p><strong>Doctor:</strong> Dr. Smith</p>
+                <p><strong>Notes:</strong> Follow-up appointment scheduled in two weeks.</p>
+            </div>
+
+            <!-- Add more medical records as needed -->
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Health Tracking App. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

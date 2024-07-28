@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Therapy</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Inline styles for simplicity; move to styles.css for better practice */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .therapy-section, .therapist-section, .contact-section {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .therapy-section h2, .therapist-section h2, .contact-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .therapy-description {
+            margin-bottom: 20px;
+        }
+
+        .therapist {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .therapist img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+        }
+
+        .therapist h3 {
+            margin: 0;
+        }
+
+        .therapist p {
+            margin: 5px 0;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mental Health Therapy</h1>
+    </header>
+
+    <div class="container">
+        <a href="third.html" class="back-button">Back</a>
+
+        <!-- Therapy Services Section -->
+        <section class="therapy-section">
+            <h2>Our Therapy Services</h2>
+            <p class="therapy-description">At Mental Health and Wellness App, we offer a variety of therapy services to support your mental well-being. Whether you're dealing with anxiety, depression, stress, or other mental health issues, our licensed therapists are here to help. Our services include:</p>
+            <ul>
+                <li>Cognitive Behavioral Therapy (CBT)</li>
+                <li>Mindfulness-Based Stress Reduction (MBSR)</li>
+                <li>Couples Counseling</li>
+                <li>Individual Therapy</li>
+                <li>Group Therapy Sessions</li>
+                <li>Online Therapy Options</li>
+            </ul>
+        </section>
+
+        <!-- Therapist Information Section -->
+        <section class="therapist-section">
+            <h2>Meet Our Therapists</h2>
+
+            <div class="therapist">
+                <img src="images/therapist1.jpg" alt="Therapist 1">
+                <div>
+                    <h3>Dr. Jane Doe</h3>
+                    <p><strong>Licensed Clinical Psychologist</strong></p>
+                    <p>Dr. Jane Doe specializes in cognitive behavioral therapy and has over 15 years of experience helping individuals manage anxiety and depression.</p>
+                </div>
+            </div>
+
+            <div class="therapist">
+                <img src="images/therapist2.jpg" alt="Therapist 2">
+                <div>
+                    <h3>John Smith</h3>
+                    <p><strong>Licensed Marriage and Family Therapist</strong></p>
+                    <p>John Smith focuses on couples counseling and family therapy, providing a safe and supportive environment for exploring relationship issues.</p>
+                </div>
+            </div>
+
+            <div class="therapist">
+                <img src="images/therapist3.jpg" alt="Therapist 3">
+                <div>
+                    <h3>Emily Johnson</h3>
+                    <p><strong>Certified Mindfulness Instructor</strong></p>
+                    <p>Emily Johnson is an expert in mindfulness-based stress reduction and offers group sessions for stress management and mindfulness training.</p>
+                </div>
+            </div>
+
+            <!-- Add more therapists as needed -->
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-section">
+            <h2>Schedule an Appointment</h2>
+            <p>If you're interested in scheduling an appointment or learning more about our therapy services, please fill out the form below:</p>
+            <form class="contact-form" action="submit_appointment_request" method="POST"> <!-- Change the action URL accordingly -->
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Mental Health and Wellness App. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
